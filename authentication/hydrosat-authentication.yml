@@ -1,0 +1,33 @@
+generated: '2026-07-19'
+method: searched
+source: https://satdocs.hydrosat.com/stac-api-reference-and-specification/authentication.md
+docs: https://satdocs.hydrosat.com/stac-api-reference-and-specification/authentication
+summary:
+  types: [oauth2]
+  oauth2_flows: [clientCredentials]
+  api_key_in: []
+  note: >-
+    The published STAC OpenAPI (openapi/hydrosat-stac-openapi.json) declares no
+    securitySchemes, but the Discovery STAC API is bearer-token protected. The
+    auth model below is captured from the provider's authentication docs.
+schemes:
+  - name: OAuth2ClientCredentials
+    type: oauth2
+    flow: clientCredentials
+    token_url: https://auth.hydrosat.com/oauth2/token
+    token_type: Bearer
+    token_ttl_seconds: 3600
+    credential_model: client_id + client_secret (per API client)
+    grant: client_credentials
+    request_content_type: application/x-www-form-urlencoded
+    sources: [https://satdocs.hydrosat.com/stac-api-reference-and-specification/authentication]
+client_provisioning:
+  portal: https://discover.hydrosat.com/
+  where: Account > API Clients (Org Admin role required)
+  max_clients_per_account: 4
+  secret_shown_once: true
+  docs: https://satdocs.hydrosat.com/discovery-portal/managing-api-clients
+usage: >-
+  Exchange client_id/client_secret at the token URL for a short-lived (3600s)
+  bearer access_token, then send Authorization: Bearer <token> to every
+  https://stac.hydrosat.com/ request; refresh before expiry.
