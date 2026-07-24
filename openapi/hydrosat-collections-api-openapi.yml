@@ -1,0 +1,595 @@
+openapi: 3.1.0
+info:
+  title: Hydrosat STAC Catalog Collections API
+  version: '0.1'
+tags:
+- name: Collections
+paths:
+  /collections:
+    get:
+      tags:
+      - Collections
+      summary: Get Collections
+      description: Endpoint.
+      operationId: Get_Collections_collections_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collections'
+  /collections/{collection_id}:
+    get:
+      tags:
+      - Collections
+      summary: Get Collection
+      description: Endpoint.
+      operationId: Get_Collection_collections__collection_id__get
+      parameters:
+      - name: collection_id
+        in: path
+        required: true
+        schema:
+          type: string
+          description: Collection ID
+          title: Collection Id
+        description: Collection ID
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    SpatialExtent:
+      properties:
+        bbox:
+          items:
+            anyOf:
+            - prefixItems:
+              - anyOf:
+                - type: number
+                - type: integer
+              - anyOf:
+                - type: number
+                - type: integer
+              - anyOf:
+                - type: number
+                - type: integer
+              - anyOf:
+                - type: number
+                - type: integer
+              type: array
+              maxItems: 4
+              minItems: 4
+            - prefixItems:
+              - anyOf:
+                - type: number
+                - type: integer
+              - anyOf:
+                - type: number
+                - type: integer
+              - anyOf:
+                - type: number
+                - type: integer
+              - anyOf:
+                - type: number
+                - type: integer
+              - anyOf:
+                - type: number
+                - type: integer
+              - anyOf:
+                - type: number
+                - type: integer
+              type: array
+              maxItems: 6
+              minItems: 6
+          type: array
+          title: Bbox
+      type: object
+      required:
+      - bbox
+      title: SpatialExtent
+      description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/collection-spec/collection-spec.md#spatial-extent-object
+    Range:
+      properties:
+        minimum:
+          anyOf:
+          - type: number
+          - type: integer
+          - type: string
+          title: Minimum
+        maximum:
+          anyOf:
+          - type: number
+          - type: integer
+          - type: string
+          title: Maximum
+      type: object
+      required:
+      - minimum
+      - maximum
+      title: Range
+      description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/collection-spec/collection-spec.md#stats-object
+    Collection:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: Id
+        description:
+          type: string
+          minLength: 1
+          title: Description
+        stac_version:
+          type: string
+          pattern: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
+          title: Stac Version
+          default: 1.0.0
+        links:
+          $ref: '#/components/schemas/stac_pydantic__links__Links'
+        stac_extensions:
+          anyOf:
+          - items:
+              type: string
+              minLength: 1
+              format: uri
+            type: array
+          - type: 'null'
+          title: Stac Extensions
+          default: []
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        type:
+          type: string
+          const: Collection
+          title: Type
+        assets:
+          anyOf:
+          - additionalProperties:
+              $ref: '#/components/schemas/Asset'
+            type: object
+          - type: 'null'
+          title: Assets
+        license:
+          type: string
+          minLength: 1
+          title: License
+        extent:
+          $ref: '#/components/schemas/Extent'
+        keywords:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Keywords
+        providers:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Provider'
+            type: array
+          - type: 'null'
+          title: Providers
+        summaries:
+          anyOf:
+          - additionalProperties:
+              anyOf:
+              - $ref: '#/components/schemas/Range'
+              - items: {}
+                type: array
+              - additionalProperties: true
+                type: object
+            type: object
+          - type: 'null'
+          title: Summaries
+      additionalProperties: true
+      type: object
+      required:
+      - id
+      - description
+      - links
+      - type
+      - license
+      - extent
+      title: Collection
+      description: https://github.com/radiantearth/stac-api-spec/tree/v1.0.0/ogcapi-features#collection-collectionscollectionid
+    MimeTypes:
+      type: string
+      enum:
+      - image/tiff; application=geotiff
+      - image/tiff; application=geotiff; profile=cloud-optimized
+      - image/jp2
+      - image/png
+      - image/jpeg
+      - application/geo+json
+      - application/geo+json-seq
+      - application/geopackage+sqlite3
+      - application/vnd.google-earth.kml+xml
+      - application/vnd.google-earth.kmz
+      - application/x-protobuf
+      - application/vnd.mapbox-vector-tile
+      - application/x-hdf
+      - application/x-hdf5
+      - application/xml
+      - application/json
+      - application/ndjson
+      - text/html
+      - text/plain
+      - application/vnd.oai.openapi+json;version=3.0
+      - application/vnd.oai.openapi;version=3.0
+      - application/schema+json
+      - application/pdf
+      - text/csv
+      - application/vnd.apache.parquet
+      - application/octet-stream
+      title: MimeTypes
+      description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/item-spec/item-spec.md#media-types
+    stac_pydantic__links__Links:
+      items:
+        $ref: '#/components/schemas/Link'
+      type: array
+      title: Links
+    Link:
+      properties:
+        href:
+          type: string
+          minLength: 1
+          title: Href
+        rel:
+          type: string
+          minLength: 1
+          title: Rel
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/MimeTypes'
+          - type: string
+          - type: 'null'
+          title: Type
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+      additionalProperties: true
+      type: object
+      required:
+      - href
+      - rel
+      title: Link
+      description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/collection-spec/collection-spec.md#link-object
+    Collections:
+      properties:
+        links:
+          $ref: '#/components/schemas/stac_pydantic__api__links__Links'
+        collections:
+          items:
+            $ref: '#/components/schemas/Collection'
+          type: array
+          title: Collections
+        numberMatched:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Numbermatched
+        numberReturned:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Numberreturned
+      type: object
+      required:
+      - links
+      - collections
+      title: Collections
+      description: 'https://github.com/radiantearth/stac-api-spec/tree/v1.0.0/ogcapi-features#endpoints
+
+        https://github.com/radiantearth/stac-api-spec/tree/v1.0.0/ogcapi-features#collections-collections'
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    TimeInterval:
+      properties:
+        interval:
+          items:
+            items:
+              anyOf:
+              - type: string
+                format: date-time
+              - type: 'null'
+            type: array
+            maxItems: 2
+            minItems: 2
+          type: array
+          minItems: 1
+          title: Interval
+      type: object
+      required:
+      - interval
+      title: TimeInterval
+      description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/collection-spec/collection-spec.md#temporal-extent-object
+    stac_pydantic__api__links__Links:
+      items:
+        anyOf:
+        - $ref: '#/components/schemas/SearchLink'
+        - $ref: '#/components/schemas/PaginationLink'
+        - $ref: '#/components/schemas/ItemsLink'
+        - $ref: '#/components/schemas/Link'
+      type: array
+      title: Links
+    Extent:
+      properties:
+        spatial:
+          $ref: '#/components/schemas/SpatialExtent'
+        temporal:
+          $ref: '#/components/schemas/TimeInterval'
+      type: object
+      required:
+      - spatial
+      - temporal
+      title: Extent
+      description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/collection-spec/collection-spec.md#extent-object
+    Asset:
+      properties:
+        href:
+          type: string
+          minLength: 1
+          title: Href
+        type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Type
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+        roles:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Roles
+      additionalProperties: true
+      type: object
+      required:
+      - href
+      title: Asset
+      description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/item-spec/item-spec.md#asset-object
+    ItemsLink:
+      properties:
+        href:
+          type: string
+          pattern: .*\/items(\?.*)?\b
+          title: Href
+        rel:
+          type: string
+          enum:
+          - self
+          - items
+          title: Rel
+        type:
+          type: string
+          const: application/geo+json
+          title: Type
+          default: application/geo+json
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+          title: Method
+          default: GET
+        headers:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Headers
+        body:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Body
+        merge:
+          type: boolean
+          title: Merge
+          default: false
+      additionalProperties: true
+      type: object
+      required:
+      - href
+      - rel
+      title: ItemsLink
+    SearchLink:
+      properties:
+        href:
+          type: string
+          pattern: .*\/search(\?.*)?\b
+          title: Href
+        rel:
+          type: string
+          enum:
+          - self
+          - search
+          - next
+          - prev
+          title: Rel
+        type:
+          type: string
+          const: application/geo+json
+          title: Type
+          default: application/geo+json
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+          title: Method
+          default: GET
+        headers:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Headers
+        body:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Body
+        merge:
+          type: boolean
+          title: Merge
+          default: false
+      additionalProperties: true
+      type: object
+      required:
+      - href
+      - rel
+      title: SearchLink
+      description: https://github.com/radiantearth/stac-api-spec/tree/v1.0.0/item-search#link-relations
+    Provider:
+      properties:
+        name:
+          type: string
+          minLength: 1
+          title: Name
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+        roles:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Roles
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+      type: object
+      required:
+      - name
+      title: Provider
+      description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/collection-spec/collection-spec.md#provider-object
+    PaginationLink:
+      properties:
+        href:
+          type: string
+          minLength: 1
+          title: Href
+        rel:
+          type: string
+          enum:
+          - next
+          - prev
+          title: Rel
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/MimeTypes'
+          - type: string
+          - type: 'null'
+          title: Type
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+          title: Method
+          default: GET
+        headers:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Headers
+        body:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Body
+        merge:
+          type: boolean
+          title: Merge
+          default: false
+      additionalProperties: true
+      type: object
+      required:
+      - href
+      - rel
+      title: PaginationLink
+      description: https://github.com/radiantearth/stac-api-spec/blob/v1.0.0/item-search/README.md#pagination
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
