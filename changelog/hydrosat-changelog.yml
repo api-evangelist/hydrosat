@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: https://satdocs.hydrosat.com/product-details/changelog
+scheme: dated
+current_version: '0.1'
+scope: >-
+  Hydrosat publishes a dated satellite-data-product changelog (imagery
+  processing/quality updates), not a semver API changelog. Recent window below.
+entries:
+  - date: '2026-05-21'
+    title: Footprint Geometry Correction
+    breaking: false
+    highlights:
+      - Fix to align STAC item footprint geometries with actual imaged area.
+  - date: '2026-03-31'
+    title: Coregistration Improvements
+    breaking: false
+    highlights:
+      - Refined mutual-information coregistration for LWIR/VNIR feature matching.
+  - date: '2026-02-24'
+    title: Geometric Processing Improvements
+    breaking: false
+    highlights:
+      - Enhanced optical distortion correction reducing along-track offsets.
+      - DEM-based band-to-band registration over complex terrain.
+  - date: '2026-02-05'
+    title: Level-1 Unit Changes
+    breaking: true
+    highlights:
+      - L1A assets now carry TOA radiance (W/m2/sr/um) natively.
+      - L1B assets carry TOA reflectance (VNIR) and brightness temperature (Kelvin, LWIR).
+      - Gain/offset coefficients now applied in processing; conversion coefficients in metadata.

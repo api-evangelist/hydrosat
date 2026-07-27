@@ -1,0 +1,12 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/hydrosat-stac-openapi.json (operationIds grep-verified)
+skills:
+  - file: hydrosat-search-imagery.md
+    name: Search Hydrosat STAC imagery
+    api: openapi/hydrosat-stac-openapi.json
+    operations:
+      - Search_search_post
+      - Search_search_get
+      - Get_Collections_collections_get
+      - Get_Item_collections__collection_id__items__item_id__get

@@ -1,0 +1,22 @@
+{
+  "provider": "hydrosat",
+  "sources": [
+    "hydrosat-catalog-api-openapi.yml",
+    "hydrosat-collections-api-openapi.yml",
+    "hydrosat-items-api-openapi.yml",
+    "hydrosat-queryables-api-openapi.yml",
+    "hydrosat-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "hydrosat-catalog-api-openapi.yml",
+    "hydrosat-collections-api-openapi.yml",
+    "hydrosat-items-api-openapi.yml",
+    "hydrosat-queryables-api-openapi.yml",
+    "hydrosat-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

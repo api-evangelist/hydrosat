@@ -1,0 +1,31 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Hydrosat STAC API
+  version: 1.0.0
+extends: openapi/hydrosat-stac-openapi.json
+actions:
+  - target: $.info
+    update:
+      description: >-
+        Hydrosat Discovery STAC API — a SpatioTemporal Asset Catalog (STAC) API
+        serving thermal infrared and VNIR satellite imagery from the Van Zyl-01
+        (VZ-1) constellation. Search and retrieve L1A/L1B/L2 imagery products
+        by area, time, cloud cover, and view angle.
+      x-apievangelist-standard: [STAC, OGC-API-Features]
+      x-apievangelist-auth: oauth2 client_credentials via https://auth.hydrosat.com/oauth2/token
+      x-apievangelist-docs: https://satdocs.hydrosat.com/
+  - target: $.servers
+    update:
+      - url: https://stac.hydrosat.com
+        description: Production Discovery STAC API (OAuth2 bearer required)
+  - target: $.components.securitySchemes
+    update:
+      OAuth2ClientCredentials:
+        type: oauth2
+        description: >-
+          Documented at satdocs.hydrosat.com but absent from the raw spec.
+          Exchange API client_id/client_secret for a 3600s bearer token.
+        flows:
+          clientCredentials:
+            tokenUrl: https://auth.hydrosat.com/oauth2/token
+            scopes: {}

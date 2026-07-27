@@ -1,0 +1,20 @@
+# Hydrosat Docs
+
+## Hydrosat Docs
+
+- [Hydrosat Satellite Imagery Overview](https://satdocs.hydrosat.com/hydrosat-satellite-imagery-overview.md)
+- [Discovery Portal](https://satdocs.hydrosat.com/discovery-portal.md)
+- [Locating Downloadable Data](https://satdocs.hydrosat.com/discovery-portal/locating-downloadable-data.md)
+- [Managing API Clients](https://satdocs.hydrosat.com/discovery-portal/managing-api-clients.md)
+- [STAC API Reference & Specification](https://satdocs.hydrosat.com/stac-api-reference-and-specification.md)
+- [Authentication](https://satdocs.hydrosat.com/stac-api-reference-and-specification/authentication.md)
+- [Locating Downloadable Data](https://satdocs.hydrosat.com/stac-api-reference-and-specification/locating-downloadable-data.md)
+- [Example Code Github Repo](https://satdocs.hydrosat.com/stac-api-reference-and-specification/example-code-github-repo.md)
+- [API Status](https://satdocs.hydrosat.com/stac-api-reference-and-specification/api-status.md)
+- [Product Details](https://satdocs.hydrosat.com/product-details.md): Learn more about the different data products Hydrosat provides.
+- [Changelog](https://satdocs.hydrosat.com/product-details/changelog.md): A list of satellite data product updates, including release dates and key features.
+- [STAC API How-To Guides](https://satdocs.hydrosat.com/stac-api-how-to-guides.md)
+- [Walkthrough: Common Workflows](https://satdocs.hydrosat.com/stac-api-how-to-guides/walkthrough-common-workflows.md): This guide shows methods for using the pystac library with Hydrosat's SpatioTemporal Asset Catalog (STAC) API to search for data that meets your criteria.
+- [Preparing Data for Analysis](https://satdocs.hydrosat.com/stac-api-how-to-guides/preparing-data-for-analysis.md): This guide shows how to access and prepare different VZ-1 imagery products for further analysis.
+- [Using the Cloud and QA Masks](https://satdocs.hydrosat.com/stac-api-how-to-guides/using-the-cloud-and-qa-masks.md): Here, we'll explore Hydrosat's cloud and quality assurance masks to better understand the information encoded within them.
+- [FAQs](https://satdocs.hydrosat.com/faqs.md): Here are our answers to some frequently asked questions from users.

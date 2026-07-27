@@ -1,0 +1,26 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hydrosat-stac-openapi.json (responses) + live probe of https://stac.hydrosat.com/
+format: json
+envelope: >-
+  Validation errors return a FastAPI HTTPValidationError object
+  {"detail":[{"loc":[...],"msg":"...","type":"..."}]} as application/json.
+  Not RFC 9457 application/problem+json.
+problems:
+  - status: 422
+    title: Validation Error
+    schema: HTTPValidationError
+    media_type: application/json
+    remediation: Correct malformed query/path parameters or search body.
+    source_operation: openapi/hydrosat-stac-openapi.json#Search_search_post
+  - status: 401
+    title: Authorization Required
+    media_type: text/html
+    observed: live probe of https://stac.hydrosat.com/ without a bearer token
+    remediation: >-
+      Obtain a bearer token from https://auth.hydrosat.com/oauth2/token using an
+      API client's client_id/client_secret and send Authorization: Bearer <token>.
+  - status: 404
+    title: Not Found
+    note: STAC standard response for an unknown collection_id or item_id
+    remediation: Verify the collection and item identifiers via /collections and item search.

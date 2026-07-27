@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://satdocs.hydrosat.com/stac-api-how-to-guides/walkthrough-common-workflows
+  + openapi/hydrosat-stac-openapi.json
+authentication:
+  style: oauth2 client_credentials bearer
+  token_url: https://auth.hydrosat.com/oauth2/token
+  ref: authentication/hydrosat-authentication.yml
+idempotency:
+  supported: false
+  note: Read-only STAC catalog (GET + POST /search); no state-changing writes, no idempotency key.
+pagination:
+  style: stac-token
+  note: >-
+    STAC Item Search pagination via `next`/`prev` links (rel-typed link objects)
+    and a `limit` parameter; pystac_client handles paging transparently
+    (search.items(), max_items to cap).
+  params: [limit, token]
+  response_links: [next, prev]
+search_filters:
+  collections: collection id(s), e.g. "vz-l2"
+  bbox: "[west, south, east, north]"
+  intersects: GeoJSON geometry
+  datetime: ISO 8601 range
+  query: 'property filters, e.g. {"eo:cloud_cover": {"lte": 20}}'
+  sortby: "+/-property (e.g. +datetime)"
+data_model:
+  standard: STAC 1.x (Catalog / Collection / Item / Asset)
+  platform: vanzyl-01 (VZ-1)
+  product_levels: [L1A, L1B, L2]
+  common_item_properties: [start_datetime, end_datetime, "eo:cloud_cover", "view:off_nadir"]
+versioning:
+  ref: lifecycle/hydrosat-lifecycle.yml
+errors:
+  ref: errors/hydrosat-problem-types.yml
+rate_limit_signaling:
+  documented: false

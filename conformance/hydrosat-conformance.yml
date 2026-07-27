@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hydrosat-stac-openapi.json + https://satdocs.hydrosat.com/stac-api-reference-and-specification
+note: >-
+  The live /conformance endpoint is auth-gated (401), so the STAC/OGC classes
+  below are derived from the operation surface (collections, items, search,
+  queryables) and the provider's STAC-API documentation, not read from the
+  running conformance response.
+standards:
+  - id: stac-api-core
+    conforms: true
+    evidence: landing page + /collections + /collections/{id}/items/{item_id} operations present
+  - id: stac-api-collections
+    conforms: true
+    evidence: Get_Collections and Get_Collection operations present
+  - id: stac-api-item-search
+    conforms: true
+    evidence: GET and POST /search operations present
+  - id: stac-api-filter-queryables
+    conforms: true
+    evidence: /queryables and /collections/{id}/queryables operations present
+  - id: ogc-api-features
+    conforms: true
+    evidence: STAC API item access builds on OGC API - Features Core (items/{id} paths)
+  - id: oauth2-client-credentials
+    conforms: true
+    evidence: docs specify OAuth2 client_credentials at auth.hydrosat.com/oauth2/token
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: validation errors use application/json (FastAPI HTTPValidationError), not application/problem+json
+  - id: fhir-r4
+    conforms: false
+  - id: json-api
+    conforms: false

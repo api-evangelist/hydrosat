@@ -1,0 +1,22 @@
+generated: '2026-07-19'
+method: searched
+source: https://satdocs.hydrosat.com/ + https://status.hydrosat.com/
+versioning:
+  scheme: api-version-field
+  current: '0.1'
+  note: OpenAPI info.version is 0.1; STAC API served at https://stac.hydrosat.com/
+  spec: openapi/hydrosat-stac-openapi.json
+data_product_versioning:
+  scheme: dated-product-changelog
+  docs: https://satdocs.hydrosat.com/product-details/changelog
+  note: Satellite data products (L1A/L1B/L2, VZ-1) are revised via dated changelog entries.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation/Sunset policy located.
+sla:
+  url: https://status.hydrosat.com/
+  uptime_target: null
+status_page: https://status.hydrosat.com/
+support: support@hydrosat.com
+deprecated_operations: []

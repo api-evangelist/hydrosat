@@ -1,7 +1,15 @@
 aid: hydrosat
 name: Hydrosat
-description: Hydrosat is a company surfaced as a portfolio company of techstars and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Hydrosat delivers thermal infrared satellite data and analytics for
+  monitoring resources and detecting change, combining thermal-infrared imaging,
+  proprietary algorithms, and field-tested expertise to support food security,
+  water security, and industrial monitoring across 60+ countries. Its Discovery
+  platform exposes a STAC-compliant (SpatioTemporal Asset Catalog) API at
+  stac.hydrosat.com serving VZ-1 (Van Zyl-01) thermal and VNIR imagery at
+  processing levels L1A, L1B, and L2, accessible via the Discovery Portal web
+  app, direct download, or the OAuth2-protected STAC API. Products include the
+  IrriWatch irrigation-planning tool and water/crop management solutions.
 url: https://raw.githubusercontent.com/api-evangelist/hydrosat/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,17 +17,176 @@ x-backed-by:
 - techstars
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://hydrosat.com/wp-content/uploads/2024/06/Field-Irrigation-Planning-2.png
 tags:
 - Company
-apis: []
+- Satellite Imagery
+- Thermal Infrared
+- Geospatial
+- Earth Observation
+- Remote Sensing
+- STAC
+- Agriculture
+- Water Management
+- Data
+apis:
+- aid: hydrosat:hydrosat-catalog-api
+  name: Hydrosat Catalog API
+  description: The Catalog API from Hydrosat — 2 operation(s) for catalog.
+  humanURL: https://satdocs.hydrosat.com/stac-api-reference-and-specification
+  baseURL: https://stac.hydrosat.com
+  tags:
+  - Catalog
+  properties:
+  - type: OpenAPI
+    url: openapi/hydrosat-catalog-api-openapi.yml
+  - type: Authentication
+    url: authentication/hydrosat-authentication.yml
+  - type: ErrorCatalog
+    url: errors/hydrosat-problem-types.yml
+  - type: Conformance
+    url: conformance/hydrosat-conformance.yml
+  - type: Conventions
+    url: conventions/hydrosat-conventions.yml
+  - type: DataModel
+    url: data-model/hydrosat-data-model.yml
+- aid: hydrosat:hydrosat-collections-api
+  name: Hydrosat Collections API
+  description: The Collections API from Hydrosat — 2 operation(s) for collections.
+  humanURL: https://satdocs.hydrosat.com/stac-api-reference-and-specification
+  baseURL: https://stac.hydrosat.com
+  tags:
+  - Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/hydrosat-collections-api-openapi.yml
+  - type: Authentication
+    url: authentication/hydrosat-authentication.yml
+  - type: ErrorCatalog
+    url: errors/hydrosat-problem-types.yml
+  - type: Conformance
+    url: conformance/hydrosat-conformance.yml
+  - type: Conventions
+    url: conventions/hydrosat-conventions.yml
+  - type: DataModel
+    url: data-model/hydrosat-data-model.yml
+- aid: hydrosat:hydrosat-items-api
+  name: Hydrosat Items API
+  description: The Items API from Hydrosat — 2 operation(s) for items.
+  humanURL: https://satdocs.hydrosat.com/stac-api-reference-and-specification
+  baseURL: https://stac.hydrosat.com
+  tags:
+  - Items
+  properties:
+  - type: OpenAPI
+    url: openapi/hydrosat-items-api-openapi.yml
+  - type: Authentication
+    url: authentication/hydrosat-authentication.yml
+  - type: ErrorCatalog
+    url: errors/hydrosat-problem-types.yml
+  - type: Conformance
+    url: conformance/hydrosat-conformance.yml
+  - type: Conventions
+    url: conventions/hydrosat-conventions.yml
+  - type: DataModel
+    url: data-model/hydrosat-data-model.yml
+- aid: hydrosat:hydrosat-queryables-api
+  name: Hydrosat Queryables API
+  description: The Queryables API from Hydrosat — 2 operation(s) for queryables.
+  humanURL: https://satdocs.hydrosat.com/stac-api-reference-and-specification
+  baseURL: https://stac.hydrosat.com
+  tags:
+  - Queryables
+  properties:
+  - type: OpenAPI
+    url: openapi/hydrosat-queryables-api-openapi.yml
+  - type: Authentication
+    url: authentication/hydrosat-authentication.yml
+  - type: ErrorCatalog
+    url: errors/hydrosat-problem-types.yml
+  - type: Conformance
+    url: conformance/hydrosat-conformance.yml
+  - type: Conventions
+    url: conventions/hydrosat-conventions.yml
+  - type: DataModel
+    url: data-model/hydrosat-data-model.yml
+- aid: hydrosat:hydrosat-search-api
+  name: Hydrosat Search API
+  description: The Search API from Hydrosat — 1 operation(s) for search.
+  humanURL: https://satdocs.hydrosat.com/stac-api-reference-and-specification
+  baseURL: https://stac.hydrosat.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/hydrosat-search-api-openapi.yml
+  - type: Authentication
+    url: authentication/hydrosat-authentication.yml
+  - type: ErrorCatalog
+    url: errors/hydrosat-problem-types.yml
+  - type: Conformance
+    url: conformance/hydrosat-conformance.yml
+  - type: Conventions
+    url: conventions/hydrosat-conventions.yml
+  - type: DataModel
+    url: data-model/hydrosat-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DeveloperPortal
+  url: https://discover.hydrosat.com/
+- type: Documentation
+  url: https://satdocs.hydrosat.com/
+- type: APIReference
+  url: https://satdocs.hydrosat.com/stac-api-reference-and-specification
+- type: GettingStarted
+  url: https://satdocs.hydrosat.com/stac-api-how-to-guides
+- type: Authentication
+  url: authentication/hydrosat-authentication.yml
+- type: LLMsTxt
+  url: llms/hydrosat-llms.txt
+- type: Lifecycle
+  url: lifecycle/hydrosat-lifecycle.yml
+- type: StatusPage
+  url: https://status.hydrosat.com/
+- type: ChangeLog
+  url: changelog/hydrosat-changelog.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Support
+  url: https://hydrosat.com/contact/
+- type: Blog
+  url: https://hydrosat.com/stories-blogs/
+- type: GitHubOrganization
+  url: https://github.com/Hydrosat
+- type: SignUp
+  url: https://discover.hydrosat.com/login
+- type: PrivacyPolicy
+  url: https://hydrosat.com/privacy-policy/
+- type: DomainSecurity
+  url: security/hydrosat-domain-security.yml
 - type: Website
   url: https://hydrosat.com/
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

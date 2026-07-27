@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/hydrosat-stac-openapi.json + STAC 1.x specification + https://satdocs.hydrosat.com/
+standard: STAC (SpatioTemporal Asset Catalog) 1.x
+entities:
+  - name: Catalog
+    description: Root landing page; entry point advertising conformance and child collections.
+    operations: [Landing_Page__get, Conformance_Classes_conformance_get]
+  - name: Collection
+    description: A grouping of STAC items sharing a data product definition (e.g. vz-l2).
+    id_examples: [vz-l2]
+    operations:
+      - Get_Collections_collections_get
+      - Get_Collection_collections__collection_id__get
+      - Collection_Queryables_collections__collection_id__queryables_get
+  - name: Item
+    description: A single spatiotemporal observation (a scene) with geometry, datetime, and properties.
+    key_properties: [start_datetime, end_datetime, "eo:cloud_cover", "view:off_nadir", platform]
+    operations:
+      - Get_ItemCollection_collections__collection_id__items_get
+      - Get_Item_collections__collection_id__items__item_id__get
+      - Search_search_get
+      - Search_search_post
+  - name: Asset
+    description: A downloadable file attached to an Item (imagery bands, masks, metadata) at product levels L1A/L1B/L2.
+relationships:
+  - from: Catalog
+    to: Collection
+    kind: has_many
+    via: child links
+  - from: Collection
+    to: Item
+    kind: has_many
+    via: collection_id
+  - from: Item
+    to: Collection
+    kind: belongs_to
+    via: collection
+  - from: Item
+    to: Asset
+    kind: has_many
+    via: assets
+queryables:
+  operations: [Queryables_queryables_get, Collection_Queryables_collections__collection_id__queryables_get]
+  purpose: Advertise which Item properties can be used in search filters.

@@ -1,0 +1,30 @@
+generated: '2026-07-19'
+method: searched
+note: >-
+  Probed the standard /.well-known/ discovery surface on every Hydrosat host.
+  None returned a 200 (docs host 404s; the STAC API host 401s on all paths
+  because it is bearer-gated). Absence recorded as valid data; no WellKnown or
+  SecurityTxt pointer is emitted because nothing was served.
+hosts:
+  - host: https://satdocs.hydrosat.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://stac.hydrosat.com
+    documents:
+      - {path: /.well-known/security.txt, status: 401}
+      - {path: /.well-known/openid-configuration, status: 401}
+      - {path: /.well-known/oauth-authorization-server, status: 401}
+      - {path: /.well-known/api-catalog, status: 401}
+      - {path: /.well-known/ai-plugin.json, status: 401}
+  - host: https://hydrosat.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+  - host: https://discover.hydrosat.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
