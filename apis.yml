@@ -151,6 +151,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: MCPServer
+  url: mcp/hydrosat-mcp.yml
+- type: Overlay
+  url: overlays/hydrosat-stac-overlay.yaml
 - type: DeveloperPortal
   url: https://discover.hydrosat.com/
 - type: Documentation
