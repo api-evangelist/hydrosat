@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hydrosat STAC Catalog API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Catalog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Landing Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/"
+          },
+          "docs": "Endpoint."
+        },
+        {
+          "info": {
+            "name": "Conformance Classes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/conformance"
+          },
+          "docs": "Endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hydrosat STAC Catalog Queryables API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Queryables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Queryables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/queryables"
+          },
+          "docs": "Endpoint."
+        },
+        {
+          "info": {
+            "name": "Collection Queryables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collections/:collection_id/queryables",
+            "params": [
+              {
+                "name": "collection_id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ]
+          },
+          "docs": "Endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

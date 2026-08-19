@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "cce9bfd6-d9e4-41a3-9e24-482e5af44526",
+      "name": "Catalog",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75c0aef0-d4b4-4956-8e8d-5b889f587420",
+          "name": "Landing Page",
+          "request": {
+            "name": "Landing Page",
+            "description": {
+              "content": "Endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10aa008d-95f6-40d7-ae5a-230a78b49fb4",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"description\": \"string\",\n  \"links\": [\n    {\n      \"href\": \"cI^-**=/search\",\n      \"rel\": \"search\",\n      \"type\": \"application/geo+json\",\n      \"title\": \"string\",\n      \"method\": \"GET\",\n      \"headers\": {\n        \"key_0\": 3521,\n        \"key_1\": 123.7315370869152,\n        \"key_2\": 6694.214036687501\n      },\n      \"body\": {\n        \"key_0\": 8912\n      },\n      \"merge\": false\n    },\n    {\n      \"href\": \"8\\\"zF/search?\\\\\",\n      \"rel\": \"prev\",\n      \"type\": \"application/geo+json\",\n      \"title\": \"string\",\n      \"method\": \"GET\",\n      \"headers\": {\n        \"key_0\": 2360,\n        \"key_1\": true,\n        \"key_2\": false\n      },\n      \"body\": {\n        \"key_0\": 5277\n      },\n      \"merge\": false\n    }\n  ],\n  \"type\": \"string\",\n  \"stac_version\": \"1.0.0\",\n  \"stac_extensions\": [\n    \"http://LGgZgpkBDV.gacjFinF7-H5L98GpP7+Go+AEEuRG41MIAMy9SaPs,v2trmv-Mtge8h.JP5Ie14tayth8BJ5Gf\",\n    \"http://JbnLDSZgJLYblWdCHZldlahI.xxgfJz,dhzqzEj2bHNfEcWx2psWO\"\n  ],\n  \"title\": \"string\",\n  \"conformsTo\": [\n    \"https://api.stacspec.org/v1.0.0/core\",\n    \"http://www.opengis.net/spec/ogcapi-features-1/1.0/conf/core\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d43d1d55-e5ad-4ffa-a4f3-c38e2d7d8c2a",
+          "name": "Conformance Classes",
+          "request": {
+            "name": "Conformance Classes",
+            "description": {
+              "content": "Endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conformance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8694cc1f-ecff-4516-a049-3548c6bc9d3e",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conformance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conformsTo\": [\n    \"https://ZMVWfGB.nosai.LTc8nSvSDo00A5Ccc+pZf\",\n    \"https://LF.kmCuhnDT\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b564059e-23f9-48ea-992b-8cb55a23ebc0",
+    "name": "Hydrosat STAC Catalog API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

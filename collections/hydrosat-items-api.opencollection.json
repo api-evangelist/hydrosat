@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hydrosat STAC Catalog Items API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collections/:collection_id/items/:item_id",
+            "params": [
+              {
+                "name": "collection_id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Item ID"
+              }
+            ]
+          },
+          "docs": "Endpoint."
+        },
+        {
+          "info": {
+            "name": "Get Itemcollection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collections/:collection_id/items",
+            "params": [
+              {
+                "name": "collection_id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limits the number of results that are included in each page of the response (capped to 10_000)."
+              },
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query",
+                "description": "Only return items intersecting this bounding box. Mutually exclusive with **intersects**."
+              },
+              {
+                "name": "datetime",
+                "value": "",
+                "type": "query",
+                "description": "Only return items that have a temporal property that intersects this value.\n\nEither a date-time or an interval, open or closed. Date and time expressions adhere to RFC 3339. Open intervals are expressed using double-dots."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "A CQL2 filter expression for filtering items.\n\nSupports `CQL2-JSON` as defined in https://docs.ogc.org/is/21-065r2/21-065r2.htmln\nRemember to URL encode the CQL2-JSON if using GET"
+              },
+              {
+                "name": "filter-crs",
+                "value": "",
+                "type": "query",
+                "description": "The coordinate reference system (CRS) used by spatial literals in the 'filter' value. Default is `http://www.opengis.net/def/crs/OGC/1.3/CRS84`"
+              },
+              {
+                "name": "filter-lang",
+                "value": "",
+                "type": "query",
+                "description": "The CQL filter encoding that the 'filter' value uses."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Include or exclude fields from items body."
+              },
+              {
+                "name": "sortby",
+                "value": "",
+                "type": "query",
+                "description": "An array of property names, prefixed by either '+' for ascending or '-' for descending. If no prefix is provided, '+' is assumed."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Parameter to perform free-text queries against STAC metadata"
+              }
+            ]
+          },
+          "docs": "Endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

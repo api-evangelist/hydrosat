@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hydrosat STAC Catalog Collections API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collections"
+          },
+          "docs": "Endpoint."
+        },
+        {
+          "info": {
+            "name": "Get Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/collections/:collection_id",
+            "params": [
+              {
+                "name": "collection_id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ]
+          },
+          "docs": "Endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

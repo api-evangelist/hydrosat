@@ -1,0 +1,234 @@
+{
+  "item": [
+    {
+      "id": "de4b5633-987a-401e-a130-69d267b3e985",
+      "name": "Collections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "377a252d-6eb4-41c3-b236-fc7de8704e09",
+          "name": "Get Collections",
+          "request": {
+            "name": "Get Collections",
+            "description": {
+              "content": "Endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3b9b0ea-eb02-4ca5-afd8-9176e8f59b5c",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": [\n    {\n      \"href\": \"/search\",\n      \"rel\": \"next\",\n      \"type\": \"application/geo+json\",\n      \"title\": \"string\",\n      \"method\": \"GET\",\n      \"headers\": {\n        \"key_0\": false\n      },\n      \"body\": {\n        \"key_0\": \"string\",\n        \"key_1\": 2025.0001573928366,\n        \"key_2\": \"string\"\n      },\n      \"merge\": false\n    },\n    {\n      \"href\": \"M/search\",\n      \"rel\": \"prev\",\n      \"type\": \"application/geo+json\",\n      \"title\": \"string\",\n      \"method\": \"GET\",\n      \"headers\": {\n        \"key_0\": 4838,\n        \"key_1\": 5254,\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"body\": {\n        \"key_0\": false,\n        \"key_1\": true\n      },\n      \"merge\": false\n    }\n  ],\n  \"collections\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"s\",\n      \"links\": [\n        {\n          \"href\": \"string\",\n          \"rel\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"string\"\n        },\n        {\n          \"href\": \"string\",\n          \"rel\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"string\"\n        }\n      ],\n      \"type\": \"string\",\n      \"license\": \"string\",\n      \"extent\": {\n        \"spatial\": {\n          \"bbox\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"temporal\": {\n          \"interval\": [\n            [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          ]\n        }\n      },\n      \"stac_version\": \"1.0.0\",\n      \"stac_extensions\": [\n        \"https://GJgnCGeWqUoBzRMLBbyTAwel.pwxs1EX34RnS1g2T-vFdy4olNLSzI-kn-20eI7X3PaBXDmy\",\n        \"http://GHLHwphkbNQPft.oirlQZDzZOhXdA\"\n      ],\n      \"title\": \"string\",\n      \"assets\": {\n        \"key_0\": {\n          \"href\": \"string\",\n          \"type\": \"string\",\n          \"title\": \"string\",\n          \"description\": \"string\",\n          \"roles\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      \"keywords\": [\n        \"string\",\n        \"string\"\n      ],\n      \"providers\": [\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"roles\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"url\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"roles\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"url\": \"string\"\n        }\n      ],\n      \"summaries\": {\n        \"key_0\": {\n          \"minimum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"maximum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"minimum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"maximum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"links\": [\n        {\n          \"href\": \"string\",\n          \"rel\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"string\"\n        },\n        {\n          \"href\": \"string\",\n          \"rel\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"title\": \"string\"\n        }\n      ],\n      \"type\": \"string\",\n      \"license\": \"string\",\n      \"extent\": {\n        \"spatial\": {\n          \"bbox\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"temporal\": {\n          \"interval\": [\n            [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          ]\n        }\n      },\n      \"stac_version\": \"1.0.0\",\n      \"stac_extensions\": [\n        \"https://tZuFlkRTyJBQYHlhEbuNDUuGazRN.vzdmzstvRO+B3lh27q,,vrz6s+i2vaez6yQkBG0zYHbdWs8jr\",\n        \"http://cnTTRBNGIVMNcQqOgOegZ.ngzurWCp55qT99p0N-R75VyUZs16hLcTfOgjl-pQJWQ-6cdBolYaFDzlghlz9FG\"\n      ],\n      \"title\": \"string\",\n      \"assets\": {\n        \"key_0\": {\n          \"href\": \"string\",\n          \"type\": \"string\",\n          \"title\": \"string\",\n          \"description\": \"string\",\n          \"roles\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"key_1\": {\n          \"href\": \"string\",\n          \"type\": \"string\",\n          \"title\": \"string\",\n          \"description\": \"string\",\n          \"roles\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      \"keywords\": [\n        \"string\",\n        \"string\"\n      ],\n      \"providers\": [\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"roles\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"url\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"description\": \"string\",\n          \"roles\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"url\": \"string\"\n        }\n      ],\n      \"summaries\": {\n        \"key_0\": {\n          \"minimum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"maximum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_1\": {\n          \"minimum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"maximum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_2\": {\n          \"minimum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"maximum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"key_3\": {\n          \"minimum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"maximum\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  ],\n  \"numberMatched\": 1381,\n  \"numberReturned\": 5359\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81965168-5627-4ed9-9ae1-300089eb5df7",
+          "name": "Get Collection",
+          "request": {
+            "name": "Get Collection",
+            "description": {
+              "content": "Endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ":collection_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collection_id",
+                  "description": "(Required) Collection ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "617171b0-8bd4-42ba-8dbe-05110860f5ee",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collection_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection_id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "null",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2f4b3a8-fc1a-41f7-b297-1aec019f8fda",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":collection_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collection_id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b2dbde7c-36d6-4974-a83a-eeaf4576861c",
+    "name": "Hydrosat STAC Catalog Collections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

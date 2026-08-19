@@ -2,44 +2,48 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: openapi/hydrosat-stac-openapi.json
-note: >-
-  No official hosted/remote MCP server was found for Hydrosat (checked docs,
-  npm @modelcontextprotocol, MCP registries). The tools below are a CANDIDATE
-  surface derived one-to-one from the published STAC OpenAPI operations. The
-  live API is OAuth2 client-credentials protected (see authentication/).
+note: No official hosted/remote MCP server was found for Hydrosat (checked docs, npm @modelcontextprotocol,
+  MCP registries). The tools below are a CANDIDATE surface derived one-to-one from the published STAC
+  OpenAPI operations. The live API is OAuth2 client-credentials protected (see authentication/).
 server:
   name: hydrosat-stac
   transport: http
   base_url: https://stac.hydrosat.com/
   auth: oauth2 client_credentials (bearer)
 tools:
-  - name: get_landing_page
-    description: STAC API landing page (root catalog).
-    source_operation: openapi/hydrosat-stac-openapi.json#Landing_Page__get
-  - name: get_conformance
-    description: List the STAC/OGC conformance classes the API implements.
-    source_operation: openapi/hydrosat-stac-openapi.json#Conformance_Classes_conformance_get
-  - name: get_collections
-    description: List all data collections.
-    source_operation: openapi/hydrosat-stac-openapi.json#Get_Collections_collections_get
-  - name: get_collection
-    description: Get a single collection by id.
-    source_operation: openapi/hydrosat-stac-openapi.json#Get_Collection_collections__collection_id__get
-  - name: get_item_collection
-    description: List items within a collection.
-    source_operation: openapi/hydrosat-stac-openapi.json#Get_ItemCollection_collections__collection_id__items_get
-  - name: get_item
-    description: Get a single STAC item by collection and item id.
-    source_operation: openapi/hydrosat-stac-openapi.json#Get_Item_collections__collection_id__items__item_id__get
-  - name: search_get
-    description: Search items via GET query parameters (bbox, datetime, collections).
-    source_operation: openapi/hydrosat-stac-openapi.json#Search_search_get
-  - name: search_post
-    description: Search items via POST JSON body (intersects, query, sortby, limit).
-    source_operation: openapi/hydrosat-stac-openapi.json#Search_search_post
-  - name: get_queryables
-    description: List global queryable properties for filtering.
-    source_operation: openapi/hydrosat-stac-openapi.json#Queryables_queryables_get
-  - name: get_collection_queryables
-    description: List queryable properties for a specific collection.
-    source_operation: openapi/hydrosat-stac-openapi.json#Collection_Queryables_collections__collection_id__queryables_get
+- name: get_landing_page
+  description: STAC API landing page (root catalog).
+  source_operation: openapi/hydrosat-stac-openapi.json#Landing_Page__get
+- name: get_conformance
+  description: List the STAC/OGC conformance classes the API implements.
+  source_operation: openapi/hydrosat-stac-openapi.json#Conformance_Classes_conformance_get
+- name: get_collections
+  description: List all data collections.
+  source_operation: openapi/hydrosat-stac-openapi.json#Get_Collections_collections_get
+- name: get_collection
+  description: Get a single collection by id.
+  source_operation: openapi/hydrosat-stac-openapi.json#Get_Collection_collections__collection_id__get
+- name: get_item_collection
+  description: List items within a collection.
+  source_operation: openapi/hydrosat-stac-openapi.json#Get_ItemCollection_collections__collection_id__items_get
+- name: get_item
+  description: Get a single STAC item by collection and item id.
+  source_operation: openapi/hydrosat-stac-openapi.json#Get_Item_collections__collection_id__items__item_id__get
+- name: search_get
+  description: Search items via GET query parameters (bbox, datetime, collections).
+  source_operation: openapi/hydrosat-stac-openapi.json#Search_search_get
+- name: search_post
+  description: Search items via POST JSON body (intersects, query, sortby, limit).
+  source_operation: openapi/hydrosat-stac-openapi.json#Search_search_post
+- name: get_queryables
+  description: List global queryable properties for filtering.
+  source_operation: openapi/hydrosat-stac-openapi.json#Queryables_queryables_get
+- name: get_collection_queryables
+  description: List queryable properties for a specific collection.
+  source_operation: openapi/hydrosat-stac-openapi.json#Collection_Queryables_collections__collection_id__queryables_get
+deployment:
+  mode: none
+  verified: derived
+  tools: 10
+  checked: '2026-08-12'
+  source: catalog MCP census
