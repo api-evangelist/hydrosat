@@ -71,6 +71,8 @@ apis:
   humanURL: https://satdocs.hydrosat.com/stac-api-reference-and-specification
   baseURL: https://stac.hydrosat.com
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -91,6 +93,8 @@ apis:
   humanURL: https://satdocs.hydrosat.com/stac-api-reference-and-specification
   baseURL: https://stac.hydrosat.com
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
