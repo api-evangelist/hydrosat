@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Hydrosat STAC Catalog Queryables API
+  title: Hydrosat STAC Queryables API
   version: '0.1'
 tags:
 - name: Queryables
