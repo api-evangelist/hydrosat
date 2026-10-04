@@ -35,192 +35,6 @@ paths:
                 $ref: '#/components/schemas/Conformance'
 components:
   schemas:
-    PaginationLink:
-      properties:
-        href:
-          type: string
-          minLength: 1
-          title: Href
-        rel:
-          type: string
-          enum:
-          - next
-          - prev
-          title: Rel
-        type:
-          anyOf:
-          - $ref: '#/components/schemas/MimeTypes'
-          - type: string
-          - type: 'null'
-          title: Type
-        title:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Title
-        method:
-          type: string
-          enum:
-          - GET
-          - POST
-          title: Method
-          default: GET
-        headers:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Headers
-        body:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Body
-        merge:
-          type: boolean
-          title: Merge
-          default: false
-      additionalProperties: true
-      type: object
-      required:
-      - href
-      - rel
-      title: PaginationLink
-      description: https://github.com/radiantearth/stac-api-spec/blob/v1.0.0/item-search/README.md#pagination
-    SearchLink:
-      properties:
-        href:
-          type: string
-          pattern: .*\/search(\?.*)?\b
-          title: Href
-        rel:
-          type: string
-          enum:
-          - self
-          - search
-          - next
-          - prev
-          title: Rel
-        type:
-          type: string
-          const: application/geo+json
-          title: Type
-          default: application/geo+json
-        title:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Title
-        method:
-          type: string
-          enum:
-          - GET
-          - POST
-          title: Method
-          default: GET
-        headers:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Headers
-        body:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Body
-        merge:
-          type: boolean
-          title: Merge
-          default: false
-      additionalProperties: true
-      type: object
-      required:
-      - href
-      - rel
-      title: SearchLink
-      description: https://github.com/radiantearth/stac-api-spec/tree/v1.0.0/item-search#link-relations
-    Link:
-      properties:
-        href:
-          type: string
-          minLength: 1
-          title: Href
-        rel:
-          type: string
-          minLength: 1
-          title: Rel
-        type:
-          anyOf:
-          - $ref: '#/components/schemas/MimeTypes'
-          - type: string
-          - type: 'null'
-          title: Type
-        title:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Title
-      additionalProperties: true
-      type: object
-      required:
-      - href
-      - rel
-      title: Link
-      description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/collection-spec/collection-spec.md#link-object
-    ItemsLink:
-      properties:
-        href:
-          type: string
-          pattern: .*\/items(\?.*)?\b
-          title: Href
-        rel:
-          type: string
-          enum:
-          - self
-          - items
-          title: Rel
-        type:
-          type: string
-          const: application/geo+json
-          title: Type
-          default: application/geo+json
-        title:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Title
-        method:
-          type: string
-          enum:
-          - GET
-          - POST
-          title: Method
-          default: GET
-        headers:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Headers
-        body:
-          anyOf:
-          - additionalProperties: true
-            type: object
-          - type: 'null'
-          title: Body
-        merge:
-          type: boolean
-          title: Merge
-          default: false
-      additionalProperties: true
-      type: object
-      required:
-      - href
-      - rel
-      title: ItemsLink
     MimeTypes:
       type: string
       enum:
@@ -252,6 +66,29 @@ components:
       - application/octet-stream
       title: MimeTypes
       description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/item-spec/item-spec.md#media-types
+    stac_pydantic__api__links__Links:
+      items:
+        anyOf:
+        - $ref: '#/components/schemas/SearchLink'
+        - $ref: '#/components/schemas/PaginationLink'
+        - $ref: '#/components/schemas/ItemsLink'
+        - $ref: '#/components/schemas/Link'
+      type: array
+      title: Links
+    Conformance:
+      properties:
+        conformsTo:
+          items:
+            type: string
+            minLength: 1
+            format: uri
+          type: array
+          title: Conformsto
+      type: object
+      required:
+      - conformsTo
+      title: Conformance
+      description: https://github.com/radiantearth/stac-api-spec/blob/master/api-spec.md#ogc-api---features-endpoints
     LandingPage:
       properties:
         id:
@@ -311,26 +148,189 @@ components:
         https://github.com/radiantearth/stac-api-spec/tree/v1.0.0/ogcapi-features#landing-page-
 
         https://github.com/radiantearth/stac-api-spec/tree/v1.0.0/item-search#link-relations'
-    stac_pydantic__api__links__Links:
-      items:
-        anyOf:
-        - $ref: '#/components/schemas/SearchLink'
-        - $ref: '#/components/schemas/PaginationLink'
-        - $ref: '#/components/schemas/ItemsLink'
-        - $ref: '#/components/schemas/Link'
-      type: array
-      title: Links
-    Conformance:
+    Link:
       properties:
-        conformsTo:
-          items:
-            type: string
-            minLength: 1
-            format: uri
-          type: array
-          title: Conformsto
+        href:
+          type: string
+          minLength: 1
+          title: Href
+        rel:
+          type: string
+          minLength: 1
+          title: Rel
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/MimeTypes'
+          - type: string
+          - type: 'null'
+          title: Type
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+      additionalProperties: true
       type: object
       required:
-      - conformsTo
-      title: Conformance
-      description: https://github.com/radiantearth/stac-api-spec/blob/master/api-spec.md#ogc-api---features-endpoints
+      - href
+      - rel
+      title: Link
+      description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/collection-spec/collection-spec.md#link-object
+    SearchLink:
+      properties:
+        href:
+          type: string
+          pattern: .*\/search(\?.*)?\b
+          title: Href
+        rel:
+          type: string
+          enum:
+          - self
+          - search
+          - next
+          - prev
+          title: Rel
+        type:
+          type: string
+          const: application/geo+json
+          title: Type
+          default: application/geo+json
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+          title: Method
+          default: GET
+        headers:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Headers
+        body:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Body
+        merge:
+          type: boolean
+          title: Merge
+          default: false
+      additionalProperties: true
+      type: object
+      required:
+      - href
+      - rel
+      title: SearchLink
+      description: https://github.com/radiantearth/stac-api-spec/tree/v1.0.0/item-search#link-relations
+    PaginationLink:
+      properties:
+        href:
+          type: string
+          minLength: 1
+          title: Href
+        rel:
+          type: string
+          enum:
+          - next
+          - prev
+          title: Rel
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/MimeTypes'
+          - type: string
+          - type: 'null'
+          title: Type
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+          title: Method
+          default: GET
+        headers:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Headers
+        body:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Body
+        merge:
+          type: boolean
+          title: Merge
+          default: false
+      additionalProperties: true
+      type: object
+      required:
+      - href
+      - rel
+      title: PaginationLink
+      description: https://github.com/radiantearth/stac-api-spec/blob/v1.0.0/item-search/README.md#pagination
+    ItemsLink:
+      properties:
+        href:
+          type: string
+          pattern: .*\/items(\?.*)?\b
+          title: Href
+        rel:
+          type: string
+          enum:
+          - self
+          - items
+          title: Rel
+        type:
+          type: string
+          const: application/geo+json
+          title: Type
+          default: application/geo+json
+        title:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Title
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+          title: Method
+          default: GET
+        headers:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Headers
+        body:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Body
+        merge:
+          type: boolean
+          title: Merge
+          default: false
+      additionalProperties: true
+      type: object
+      required:
+      - href
+      - rel
+      title: ItemsLink
