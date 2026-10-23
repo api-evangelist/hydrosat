@@ -334,3 +334,9 @@ components:
       - application/octet-stream
       title: MimeTypes
       description: https://github.com/radiantearth/stac-spec/blob/v1.0.0/item-spec/item-spec.md#media-types
+x-provenance:
+  method: harvested
+  publisher: Hydrosat
+  source: https://stac.hydrosat.com/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
